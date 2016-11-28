@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jsp:root   xmlns:jsp="http://java.sun.com/JSP/Page"
+            xmlns:c="http://java.sun.com/jsp/jstl/core"
+            version="2.1">
+    <jsp:directive.page contentType="text/html; charset=UTF-8" />
+    <jsp:directive.page isELIgnored="false" />
+    <jsp:output omit-xml-declaration="false"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd" />
+    <html>
+        <c:set var="contexto" value="${pageContext.request.contextPath}"/>
+        <head>
+            <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+            <title>CREATE Alumnos</title>
+            <link rel="stylesheet" href="${contexto}/css/estilo.css" type="text/css"/>
+        </head>
+        <body>
+            <div id="contPrin">
+                <div id="contSecu">
+                    <h2>Equipo</h2>
+                    <div id="elementos">
+                        <p class="p">
+                            <c:out value="${equipo.marca}"/><br/>
+                            <c:out value="${equipo.numSerie}"/><br/>
+                        </p>
+                    </div>
+                    <p><a class="menu" href="${contexto}/JSPX/crudEquipos.jspx">Men&amp;uacute; equipos</a></p>
+                    <p><a class="menu" href="${contexto}/index.jspx">Men&amp;uacute; inicial</a></p>
+                </div>
+                <jsp:include page="/JSP_INCLUDES/pie.jsp"/>
+            </div>
+        </body>
+    </html>
+</jsp:root>

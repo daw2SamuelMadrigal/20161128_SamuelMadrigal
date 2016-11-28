@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jsp:root   xmlns:jsp="http://java.sun.com/JSP/Page"
+            xmlns:c="http://java.sun.com/jsp/jstl/core"
+            version="2.1">
+    <jsp:directive.page contentType="text/html; charset=UTF-8" />
+    <jsp:directive.page isELIgnored="false" />
+    <jsp:output omit-xml-declaration="false"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd" />
+    <html>
+        <c:set var="contexto" value="${pageContext.request.contextPath}"/>
+        <head>
+            <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+            <title>READ Alumnos</title>
+            <link rel="stylesheet" href="${contexto}/css/estilo.css" type="text/css"/>
+        </head>
+        <body>
+            <div id="contPrin">
+                <div id="contSecu">
+                    <h2>Lista de Alumnos</h2>
+                    <div id="elementos">
+                        <c:forEach var="alumno" items="${lista}">
+                            <p class="p">
+                                <span><c:out value="${alumno.idAlumno}"/></span><br/>
+                                <c:out value="${alumno.nombre}"/><br/>
+                                <c:out value="${alumno.grupo}"/><br/>
+                                <span style="color:red;">equipo</span><br/>
+                                <c:out value="${alumno.equipo.marca}" default="Sin asignar"/><br/>
+                            </p>
+                        </c:forEach>
+                    </div>
+                    <p><a class="menu" href="${contexto}/JSPX/crudAlumnos.jspx">Men&amp;uacute; alumnos</a></p>
+                    <p><a class="menu" href="${contexto}/index.jspx">Men&amp;uacute; inicial</a></p>
+                </div>
+                <jsp:include page="/JSP_INCLUDES/pie.jsp"/>
+            </div>
+        </body>
+    </html>
+</jsp:root>
